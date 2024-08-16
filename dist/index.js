@@ -31859,3 +31859,6 @@ main(created, updated, removed).then(() => console.log("Git got embedded success
   console.error("An error occurred while getting git embedded:", error);
   process.exit(1);
 });
+export {
+  main
+};

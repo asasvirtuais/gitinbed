@@ -1,4 +1,4 @@
-name: gitembed
+name: gitinbed
 description: Create, updates, and removes embeddings of the repository files, using Voyage and Pinecone
 runs:
 	using: node20

@@ -1,5 +1,5 @@
 {
-	"name": "gitembed",
+	"name": "gitinbed",
 	"description": "Create, updates, and removes embeddings of the repository files, using Voyage and Pinecone",
 	"version": "0.1.0",
 	"author": "asasvirtuais",
@@ -11,8 +11,8 @@
 		"pinecone",
 		"voyage"
 	],
-	"repository": "https://github.com/asasvirtuais/gitembed.git",
-	"homepage": "https://github.com/asasvirtuaisgitembed#readme",
+	"repository": "https://github.com/asasvirtuais/gitinbed.git",
+	"homepage": "https://github.com/asasvirtuaisgitinbed#readme",
 	"license": "MIT",
 	"type": "module",
 	"main": "dist/index.js",
