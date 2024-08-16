@@ -2,32 +2,32 @@ name: gitinbed
 description: Create, updates, and removes embeddings of the repository files, using Voyage and Pinecone
 
 on:
-	push:
-		branches:
-			- main
+  push:
+    branches:
+      - main
 
 jobs:
-	update-embeddings:
-		runs-on: ubuntu-latest
-		steps:
-		- uses: actions/checkout@v4
-			with:
-				fetch-depth: 0
+  update-embeddings:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
-		- name: Get changed files
-			uses: tj-actions/changed-files@v44
-			id: changes
+    - name: Get changed files
+      uses: tj-actions/changed-files@v44
+      id: changes
 
-		- name: Update Embeddings
-			uses: asasvirtuais/gitinbed@v1
-			env:
+    - name: Update Embeddings
+      uses: asasvirtuais/gitinbed@main
+      env:
         VOYAGE_MODEL: voyage-large-2-instruct
         PINECONE_INDEX: ${{ github.repository_owner }}
         PINECONE_NAMESPACE: ${{ github.event.repository.name }}
-				PINECONE_API_KEY: ${{ secrets.PINECONE_API_KEY }}
-				VOYAGE_API_KEY: ${{ secrets.VOYAGE_API_KEY }}
-			with:
-				args: >
-					--created ${{ steps.changes.outputs.added_files }}
-					--updated ${{ steps.changes.outputs.modified_files }}
-					--removed ${{ steps.changes.outputs.removed_files }}
+        PINECONE_API_KEY: ${{ secrets.PINECONE_API_KEY }}
+        VOYAGE_API_KEY: ${{ secrets.VOYAGE_API_KEY }}
+      with:
+        args: >
+          --created ${{ steps.changes.outputs.added_files }}
+          --updated ${{ steps.changes.outputs.modified_files }}
+          --removed ${{ steps.changes.outputs.removed_files }}
