@@ -1,5 +1,4 @@
 
+Create, updates, and removes embeddings of the repository files, using Voyage and Pinecone
+
 > Git in bed or get embedded
-
-That is the second time I write this today \*sigh\*
-
