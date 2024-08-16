@@ -14,6 +14,13 @@ importers:
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
+      voyageai:
+        specifier: 0.0.1-2
+        version: 0.0.1-2(encoding@0.1.13)
+    devDependencies:
+      '@types/node':
+        specifier: ^22.4.0
+        version: 22.4.0
       esbuild:
         specifier: ^0.23.0
         version: 0.23.0
@@ -23,13 +30,6 @@ importers:
       typescript:
         specifier: ^5.5.4
         version: 5.5.4
-      voyageai:
-        specifier: 0.0.1-2
-        version: 0.0.1-2(encoding@0.1.13)
-    devDependencies:
-      '@types/node':
-        specifier: ^22.3.0
-        version: 22.3.0
 
 packages:
 
@@ -319,8 +319,8 @@ packages:
   '@sinclair/typebox@0.29.6':
     resolution: {integrity: sha512-aX5IFYWlMa7tQ8xZr3b2gtVReCvg7f3LEhjir/JAjX2bJCMVJA5tIPv30wTD4KDfcwMd7DDYY3hFDeGmOgtrZQ==}
 
-  '@types/node@22.3.0':
-    resolution: {integrity: sha512-nrWpWVaDZuaVc5X84xJ0vNrLvomM205oQyLsRt7OHNZbSHslcWsvgFR7O7hire2ZonjLrWBbedmotmIlJDVd6g==}
+  '@types/node@22.4.0':
+    resolution: {integrity: sha512-49AbMDwYUz7EXxKU/r7mXOsxwFr4BYbvB7tWYxVuLdb2ibd30ijjXINSMAHiEEZk5PCRBmW1gUeisn2VMKt3cQ==}
 
   ajv@8.17.1:
     resolution: {integrity: sha512-B/gBuNg5SiMTrPkC+A2+cW0RszwxYmn6VYxB/inlBStS5nx6xHIt/ehKRhIMhqusl7a8LjQoZnjCs5vhwxOQ1g==}
@@ -535,8 +535,8 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
-  undici-types@6.18.2:
-    resolution: {integrity: sha512-5ruQbENj95yDYJNS3TvcaxPMshV7aizdv/hWYjGIKoANWKjhWNBsr2YEuYZKodQulB1b8l7ILOuDQep3afowQQ==}
+  undici-types@6.19.6:
+    resolution: {integrity: sha512-e/vggGopEfTKSvj4ihnOLTsqhrKRN3LeO6qSN/GxohhuRv8qH9bNQ4B8W7e/vFL+0XTnmHPB4/kegunZGA4Org==}
 
   url-join@4.0.1:
     resolution: {integrity: sha512-jk1+QP6ZJqyOiuEI9AEWQfju/nB2Pw466kbA0LEZljHwKeMgd9WrAEgEGxjPDD2+TNbbb37rTyhEfrCXfuKXnA==}
@@ -701,9 +701,9 @@ snapshots:
 
   '@sinclair/typebox@0.29.6': {}
 
-  '@types/node@22.3.0':
+  '@types/node@22.4.0':
     dependencies:
-      undici-types: 6.18.2
+      undici-types: 6.19.6
 
   ajv@8.17.1:
     dependencies:
@@ -956,7 +956,7 @@ snapshots:
 
   typescript@5.5.4: {}
 
-  undici-types@6.18.2: {}
+  undici-types@6.19.6: {}
 
   url-join@4.0.1: {}
 
