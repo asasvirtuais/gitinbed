@@ -1,0 +1,16 @@
+{
+  "name": "@asasvirtuais/gitembed",
+  "description": "Git in bed or get embedded",
+  "scripts": {
+    "gitembed": "esrun src/index.ts"
+  },
+  "dependencies": {
+    "@pinecone-database/pinecone": "^3.0.0",
+    "esrun": "^3.2.26",
+    "typescript": "^5.5.4",
+    "voyageai": "0.0.1-2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.3.0"
+  }
+}
