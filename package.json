@@ -1,8 +1,25 @@
 {
 	"name": "gitembed",
 	"description": "Create, updates, and removes embeddings of the repository files, using Voyage and Pinecone",
+	"version": "1",
+	"author": "asasvirtuais",
+	"keywords": [
+		"github",
+		"action",
+		"workflow",
+		"embeddings",
+		"pinecone",
+		"voyage"
+	],
+	"repository": "https://github.com/asasvirtuais/gitembed.git",
+	"homepage": "https://github.com/asasvirtuaisgitembed#readme",
+	"license": "MIT",
+	"type": "module",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
 	"scripts": {
-		"build": "esbuild src/index.ts --bundle --platform=node --target=node20 --outfile=index.js",
+		"build": "tsc && esbuild src/index.ts --bundle --platform=node --target=node20 --outfile=dist/index.js --format=esm",
+		"prepublishOnly": "npm run build",
 		"run": "node index.js",
 		"dev": "esrun src/index.ts",
 		"prepare": "npm run build"
@@ -17,5 +34,8 @@
 		"esrun": "^3.2.26",
 		"typescript": "^5.5.4",
 		"@types/node": "^22.3.0"
+	},
+	"engines": {
+		"node": ">=20"
 	}
 }

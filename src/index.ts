@@ -45,3 +45,5 @@ main(created, updated, removed)
 		console.error('An error occurred while getting git embedded:', error)
 		process.exit(1)
 	})
+
+export { main }
