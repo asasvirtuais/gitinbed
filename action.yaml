@@ -3,4 +3,4 @@ version: v1
 description: Create, updates, and removes embeddings of the repository files, using Voyage and Pinecone
 runs:
   using: node20
-  main: index.js
+  main: dist/index.js
