@@ -15,23 +15,17 @@
 	"homepage": "https://github.com/asasvirtuaisgitinbed#readme",
 	"license": "MIT",
 	"type": "module",
-	"main": "dist/index.js",
-	"types": "dist/index.d.ts",
+	"main": "src/index.ts",
 	"scripts": {
-		"build": "tsc && esbuild src/index.ts --bundle --platform=node --target=node20 --outfile=dist/index.js --format=esm",
-		"prepublishOnly": "npm run build",
-		"run": "node index.js",
-		"dev": "esrun src/index.ts",
-		"prepare": "npm run build"
+		"run": "esrun src/index.ts"
 	},
 	"dependencies": {
 		"@pinecone-database/pinecone": "^3.0.0",
 		"dotenv": "^16.4.5",
-		"voyageai": "0.0.1-2"
+		"voyageai": "0.0.1-2",
+		"esrun": "^3.2.26"
 	},
 	"devDependencies": {
-		"esbuild": "^0.23.0",
-		"esrun": "^3.2.26",
 		"typescript": "^5.5.4",
 		"@types/node": "^22.4.0"
 	},

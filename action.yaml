@@ -1,6 +1,9 @@
-name: gitinbed
-version: v1
-description: Create, updates, and removes embeddings of the repository files, using Voyage and Pinecone
+name: 'gitinbed'
+description: 'Create, updates, and removes embeddings of the repository files, using Voyage and Pinecone'
 runs:
-  using: node20
-  main: dist/index.js
+  using: 'composite'
+  steps:
+    - run: npm ci
+      shell: bash
+    - run: npx esrun src/index.ts
+      shell: bash
