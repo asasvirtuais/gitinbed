@@ -21,7 +21,7 @@ jobs:
 			id: changes
 
 		- name: Update Embeddings
-			uses: your-username/gitembed@v1
+			uses: asasvirtuais/gitembed@v1
 			env:
         VOYAGE_MODEL: voyage-large-2-instruct
         PINECONE_INDEX: ${{ github.repository_owner }}
