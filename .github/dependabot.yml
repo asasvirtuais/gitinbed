@@ -7,5 +7,4 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    package-manager: "pnpm"
     versioning-strategy: "auto"
