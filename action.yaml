@@ -1,9 +1,0 @@
-name: 'gitinbed'
-description: 'Create, updates, and removes embeddings of the repository files, using Voyage and Pinecone'
-runs:
-  using: 'composite'
-  steps:
-    - run: npm ci
-      shell: bash
-    - run: npx esrun src/index.ts
-      shell: bash
