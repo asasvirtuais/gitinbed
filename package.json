@@ -1,0 +1,33 @@
+{
+	"name": "gitinbed",
+	"description": "Create, updates, and removes embeddings of the repository files, using Voyage and Pinecone",
+	"version": "0.1.0",
+	"author": "asasvirtuais",
+	"keywords": [
+		"github",
+		"action",
+		"workflow",
+		"embeddings",
+		"pinecone",
+		"voyage"
+	],
+	"repository": "https://github.com/asasvirtuais/gitinbed.git",
+	"homepage": "https://github.com/asasvirtuaisgitinbed#readme",
+	"license": "MIT",
+	"type": "module",
+	"main": "src/index.ts",
+	"scripts": {
+		"run": "esrun src/index.ts"
+	},
+	"dependencies": {
+		"@pinecone-database/pinecone": "^3.0.0",
+		"dotenv": "^16.4.5",
+		"esrun": "^3.2.26",
+		"tslog": "^4.9.3",
+		"voyageai": "0.0.1-2"
+	},
+	"devDependencies": {
+		"@types/node": "^22.4.0",
+		"typescript": "^5.5.4"
+	}
+}

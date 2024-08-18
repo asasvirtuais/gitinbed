@@ -1,0 +1,37 @@
+name: gitinbed
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-embeddings:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0  # This ensures all history is fetched
+
+    - name: Get changed files
+      id: changed-files
+      uses: tj-actions/changed-files@v44
+
+    - name: Debug - Log changed files
+      run: |
+        echo "Added files: ${{ steps.changed-files.outputs.added_files }}"
+        echo "Modified files: ${{ steps.changed-files.outputs.modified_files }}"
+        echo "Deleted files: ${{ steps.changed-files.outputs.deleted_files }}"
+
+    - name: Update Embeddings
+      uses: asasvirtuais/gitinbed@main
+      env:
+        VOYAGE_MODEL: voyage-large-2-instruct
+        PINECONE_INDEX: ${{ github.repository_owner }}
+        PINECONE_NAMESPACE: ${{ github.event.repository.name }}
+        PINECONE_API_KEY: ${{ secrets.PINECONE_API_KEY }}
+        VOYAGE_API_KEY: ${{ secrets.VOYAGE_API_KEY }}
+      with:
+        created: ${{ steps.changed-files.outputs.added_files }}
+        updated: ${{ steps.changed-files.outputs.modified_files }}
+        removed: ${{ steps.changed-files.outputs.deleted_files }}

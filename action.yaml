@@ -1,0 +1,28 @@
+name: 'gitinbed'
+description: 'Create, updates, and removes embeddings of the repository files, using Voyage and Pinecone'
+
+inputs:
+  created:
+    description: 'Space-separated list of created files'
+    required: false
+    default: ''
+  updated:
+    description: 'Space-separated list of updated files'
+    required: false
+    default: ''
+  removed:
+    description: 'Space-separated list of removed files'
+    required: false
+    default: ''
+
+runs:
+  using: 'composite'
+  steps:
+    - run: npm ci
+      shell: bash
+    - run: |
+        npx esrun src/index.ts \
+          --created "${{ inputs.created }}" \
+          --updated "${{ inputs.updated }}" \
+          --removed "${{ inputs.removed }}"
+      shell: bash
