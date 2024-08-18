@@ -17,7 +17,6 @@ const mapToCone = (path: string) => (embed: EmbedResponse): PineconeRecord<Recor
 })
 const resolved = Promise.resolve()
 export default async function main(created: string[] = [], updated: string[] = [], removed: string[] = []) {
-	logger.sillier({created, updated, removed})
 	const creating = created.length > 0 ? Promise.all(
 		created.map(
 			path => read(path)
