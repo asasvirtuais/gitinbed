@@ -15,23 +15,22 @@ const mapToCone = (path: string) => (embed: EmbedResponse): PineconeRecord<Recor
 	},
 	values: embed.data?.[0]?.embedding as number[]
 })
-
+const resolved = Promise.resolve()
 export default async function main(created: string[] = [], updated: string[] = [], removed: string[] = []) {
-	await Promise.all([
-		Promise.all(
-			created.map(
-				path => read(path)
-					.then(embed)
-					.then(mapToCone(path))
-			)
-		).then(create),
-		Promise.all(
-			updated.map(
-				path => read(path)
-					.then(embed)
-					.then(mapToCone(path))
-			)
-		).then(res => res.map(update)),
-		destroy(removed)
-	])
+	const creating = created.length > 0 ? Promise.all(
+		created.map(
+			path => read(path)
+				.then(embed)
+				.then(mapToCone(path))
+		)
+	).then(create) : resolved
+	const updating = await Promise.all(
+		updated.map(
+			path => read(path)
+				.then(embed)
+				.then(mapToCone(path))
+		)
+	).then(res => res.map(update))
+	const removing = removed.length > 0 ? destroy(removed) : resolved
+	await Promise.all([creating, ...updating, removing]).catch(logger.error)
 }
