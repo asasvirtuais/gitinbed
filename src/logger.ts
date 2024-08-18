@@ -1,9 +1,9 @@
-import { Logger, ILogObj } from 'tslog'
+import { Logger, ILogObj, ISettingsParam } from 'tslog'
 
 const debug = process.argv.slice(2).find(arg => arg.startsWith('--debug')) || process.env.NODE_ENV !== 'production'
 
 class CustomLogger extends Logger<ILogObj> {
-  constructor(settings: any) {
+  constructor(settings?: ISettingsParam<ILogObj>) {
     super(settings)
   }
 
