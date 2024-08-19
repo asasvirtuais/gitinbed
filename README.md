@@ -5,8 +5,9 @@ Creates, updates, and removes embeddings of the repository files based on GIT A 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub release](https://img.shields.io/github/release/asasvirtuais/gitinbed.svg)](https://GitHub.com/asasvirtuais/gitinbed/releases/)
 
-### Usage example with Workflow yml file:
+### Usage example with Workflow file
 
+.github/workflows/git-repo-embed.yml
 ```.yml
 name: gitinbed
 
