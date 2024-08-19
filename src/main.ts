@@ -17,6 +17,7 @@ const mapToCone = (path: string) => (embed: EmbedResponse): PineconeRecord<Recor
 })
 const resolved = Promise.resolve()
 export default async function main(created: string[] = [], updated: string[] = [], removed: string[] = []) {
+
 	const creating = created.length > 0 ? Promise.all(
 		created.map(
 			path => read(path)
@@ -24,13 +25,16 @@ export default async function main(created: string[] = [], updated: string[] = [
 				.then(mapToCone(path))
 		)
 	).then(create) : resolved
-	const updating = await Promise.all(
+
+	const updating = Promise.all(
 		updated.map(
 			path => read(path)
 				.then(embed)
 				.then(mapToCone(path))
 		)
-	).then(res => res.map(update))
+	).then(res => Promise.all(res.map(update)))
+
 	const removing = removed.length > 0 ? destroy(removed) : resolved
-	await Promise.all([creating, ...updating, removing]).catch(logger.error)
+
+	await Promise.all([creating, updating, removing]).catch(console.error)
 }
